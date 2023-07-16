@@ -1,0 +1,27 @@
+div#outer {
+  border: solid 1px black;
+  width: 350px;
+  height: 200px;
+  padding: 10px 10px 10px 10px;
+  position: absolute;
+  top: 200px;
+  left: 50px;
+}
+div#one {
+  border: solid 1px black;
+  background-color: orange;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+div#two {
+  border: solid 1px black;
+  background-color: orange;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 50px;
+  left: 200px;
+}
