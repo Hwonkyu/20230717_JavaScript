@@ -13,21 +13,24 @@ ESLint
       
       npx eslint --init               답변에 따라 설정
 
-       ✔ How would you like to use ESLint? · eslint를 어떤 목적으로 사용할 것인가?
+      ✔ How would you like to use ESLint? · eslint를 어떻게 사용할 것인가?
 	      To check syntax and find problems
-      ✔ What type of modules does your project use? · 어떤 모듈 사용법을 사용할 것인가?
-	      JavaScript => import/export
-        	Node => require
-          	JavaScript modules (import/export)
-      ✔ Which framework does your project use? · 어떤 프로젝트를 만드는 중이니...
-	      None of these
+
+      ✔ What type of modules does your project use? · 프로젝트에서 사용하는 모듈 유형은?
+	      JavaScript => import/export 또는 Node => require
+        JavaScript modules (import/export)
+      
+      ✔ Which framework does your project use? · 프로젝트에서 사용하는 프레임워크는?
+	      ES6
+
       ✔ Does your project use TypeScript? · 타입스크립트 쓰니?
 	      No
-      ✔ Where does your code run? · 실행 어디서 할거니? (키보드로 이동. 스페이스로 체크, 해제)
+      ✔ Where does your code run? · 코드가 실행되는 위치는? (키보드로 이동. 스페이스로 체크, 해제)
 	      둘 다 체크 가능
-          	Browser
-          	Node
-      ✔ What format do you want your config file to be in? · 설정 파일은 어느 형식으로 만들어 줄까?
+        Browser
+        Node
+
+      ✔ What format do you want your config file to be in? · 설정 파일의 형식은?
 	      JSON
 
   3. 검사
@@ -152,7 +155,7 @@ prettier
 
 Babel 작업 설정
   https://babeljs.io/
-  https://babeljs.io/docs/en/plugins/
+  https://babeljs.io/docs/plugins-list
 
   1. package.json 파일 생성
     npm init -y
