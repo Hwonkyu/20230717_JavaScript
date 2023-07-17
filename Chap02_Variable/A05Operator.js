@@ -20,13 +20,17 @@ console.log(result);
 // age 값이 위의 '', 0, -0, undefined, null, NaN, false 값이 아니니 (즉 값이 있니)
 result = (!age) ? 'TRUE' : 'FALSE';
 console.log(result);
+console.log('');
 
 // 이 브라우저가 addEventListener 객체가 있니? (기능을 지원 하니?)
 // function addEventListener(name, callback) { }
-result = (addEventListener) ? 'TRUE' : 'FALSE';
+console.log('addEventListener')
+result = (globalThis.addEventListener) ? 'TRUE' : 'FALSE';
 console.log(result);
 console.log('');
 
+
+// https://velog.io/@yunsungyang-omc/JS-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8%EC%9D%98-%ED%98%95%EB%B3%80%ED%99%98Type-Casting
 console.log('----------------- &&, || 를 연산자로 사용 -----------------');
 // 앞이 false면 (즉 값이 없으면) || 뒤 구문을 체크 (실행)한다
 // 앞의 값이 없으면 뒤의 값을 result 변수에 대입
