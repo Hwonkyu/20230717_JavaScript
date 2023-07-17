@@ -57,7 +57,7 @@ console.log('check: ' + check + ', typeof(변수명): ' + typeof check);
 check = !!null;
 console.log('check: ' + check + ', typeof(변수명): ' + typeof check);
 
-// 브라우저로 실행해야 에러 아님ㄴ
+// 브라우저로 실행해야 에러 아님
 check = !!globalThis.addEventListener;
 console.log('check: ' + check + ', typeof(변수명): ' + typeof check);
 
