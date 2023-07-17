@@ -1,0 +1,107 @@
+강사
+  신성진
+  pxp13716@gmail.com
+
+GitHub
+  https://github.com/pxp13716/20230717_JavaScript
+
+
+설치 프로그램
+  VSCode          https://code.visualstudio.com/
+  Chrome          https://www.google.co.kr/chrome/
+  Node            https://nodejs.org/ko/
+
+
+VSCode 세팅
+  Auto Save 등의 키워드로 검색하면 빠르게 찾을 수 있다
+
+  Files: Auto Save
+  Controls auto save of editors that have unsaved changes.
+    => onFocusChange
+
+  Editor: Font Size
+  Controls the font size in pixels.
+    => 14
+
+  Editor: Tab Size
+  The number of spaces a tab is equal to. This setting is overridden based on the file contents when Editor: Detect Indentation is on.
+    => 2
+
+  Editor: Default Formatter
+  Defines a default formatter which takes precedence over all other formatter settings. Must be the identifier of an extension contributing a formatter.
+    => JavaScript And JavaScript...
+
+  Editor: Format On Save
+  Format a file on save. A formatter must be available, the file must not be saved after delay, and the editor must not be shutting down.
+    => CHECK
+
+  Explorer: Compact Folders
+  Controls whether the Explorer should render folders in a compact form. In such a form, single child folders will be compressed in a combined tree element. Useful for Java package structures, for example.
+    => CHECK 해제
+
+
+User Settings.json
+  {
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "workbench.startupEditor": "none",
+    "files.autoSave": "onFocusChange",
+    "editor.tabSize": 2,
+    "editor.formatOnSave": true,
+    "explorer.compactFolders": false,
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.iconTheme": "material-icon-theme",
+    "html.autoClosingTags": true,
+    "liveServer.settings.donotShowInfoMsg": true,   // Live Server Plugin
+    // "prettier.enableDebugLogs": true,
+    // "prettier.singleQuote": true,
+    // "prettier.printWidth": 120,
+    // "prettier.semi": false
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "[html]": {
+      "editor.defaultFormatter": "vscode.typescript-language-features"
+      // "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+      // "editor.defaultFormatter": "esbenp.prettier-vscode"
+      "editor.defaultFormatter": "vscode.typescript-language-features",
+    },
+  }
+
+
+
+VSCode Plugins
+  JavaScript (ES6) code snippets
+  Live Server
+
+  Auto Rename Tag
+  Material Icon Theme
+  Korean(사용법) Language Pack for Visual Studio Code
+
+
+VSCode Settings JSON 파일 열기
+  F1(Ctrl + Shift + p) => settings 입력 => Preferences: Open User Settings (JSON)
+
+  저장 위치 - 숨김 파일 표시 
+    C:\Users\USERNAME\AppData\Roaming\Code\User\settings.json (WIN)
+    ~/Library/Application Support/Code/User/settings.json     (MAC)
+
+
+사이트
+  JavaScript 지원 현황
+    http://kangax.github.io/compat-table/es6/
+  
+  브라우저 점유율             
+    https://gs.statcounter.com/
+  
+  JavaScript
+    https://developer.mozilla.org/ko/docs/Web/JavaScript
+    https://www.w3schools.com/js/default.asp
+
+  CDN
+    https://cdnjs.com/
+    https://www.jsdelivr.com/
+
+  Babel
+    https://babeljs.io/
+    https://babeljs.io/docs/en/plugins/
+

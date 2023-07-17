@@ -65,3 +65,4 @@ console.log('check: ' + check + ', typeof(변수명): ' + typeof check);
 // if (!age) { }
 
 console.log('-----------------  global 함수 -----------------');
+// https://hongjw1938.tistory.com/210
