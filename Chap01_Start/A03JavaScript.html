@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A03 JavaScript</title>
+  
+  <!-- 주석은 주석부터 기술한다. 이후에 이 줄에 커서를 두고 ctrl + / 로 주석 처리 -->
+  <script type="text/javascript" src="./js/header.js">
+    // 외부 파일 형태로 분리 src가 있으면 <script></script> 사이에 명령을 기술하면 무시된다
+    document.write('이 구문은 무시된다. 에러는 아님');
+  </script>
+  <script type="text/javascript">
+    // 위의 header.js 파일을 참조해서 사용하려면 src 없는 구문을 별도로 기술해야 한다
+    document.write('이 구문은 표시된다. 위의 스크립트 구문도 참조 가능<br>');
+    document.write(`${name} / ${age}`);
+  </script>
+</head>
+<body>
+
+  <div id="main">
+    <header>
+      <h1>A01 Start</h1>
+    </header>
+
+    <script type="text/javascript" src="./js/before.js"></script>
+
+    <main>
+      <div>This is Content</div>
+    </main>
+
+    <script type="text/javascript" src="./js/after.js"></script>
+
+    <section>
+      <h2>Section</h2>
+      <div>This is section content</div>
+      <div id="result"></div>
+      <div id="app"></div>
+    </section>
+
+
+    <script type="text/javascript" src="./js/footer.js"></script>
+  </div>
+</body>
+</html>

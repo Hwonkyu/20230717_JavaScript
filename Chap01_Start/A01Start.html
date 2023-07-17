@@ -15,6 +15,11 @@
     }
 
     // 시작하자 마자 실행해야 할 명령 구문
+    // 문서가 /html까지 정상적으로 모두 읽은 후에 실행되는 이벤트..
+    window.addEventListener('load', function() {
+      document.getElementById('result').innerHTML = '<b>Head에서 추가한 문자열</b>';
+    });
+
     document.write('Head에 정의한 명령문...');
   </script>
 </head>
@@ -38,12 +43,13 @@
       document.write(`main 밑에에 기술 - ${name} / ${age}<br>`);  // 현재 위치에 출력
       onAdd(20, 30);
 
-      document.getElementById('app').textContent = 'Hello World';
+      // document.getElementById('app').textContent = 'Hello World';    // Error
     </script>
 
     <section>
       <h2>Section</h2>
       <div>This is section content</div>
+      <div id="result"></div>
       <div id="app"></div>
     </section>
 
@@ -52,6 +58,8 @@
       // 가장 많이 사용된다...
       document.write(`/body 바로 위에 기술 - ${name} / ${age}<br>`);  // 현재 위치에 출력
       onAdd(30, 40);
+
+      document.getElementById('app').textContent = 'Hello World';
     </script>
   </div>
 </body>

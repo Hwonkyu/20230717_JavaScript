@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A02JavaScript</title>
+  <!-- 외부 파일 형태로 분리 src가 있으면 <script></script> 사이에 명령을 기술하면 무시된다 -->
+  <script type="text/javascript" src="./js/header.js"></script>
+</head>
+<body>
+
+  <div id="main">
+    <header>
+      <h1>A01 Start</h1>
+    </header>
+
+    <script type="text/javascript" src="./js/before.js"></script>
+
+    <main>
+      <div>This is Content</div>
+    </main>
+
+    <script type="text/javascript" src="./js/after.js"></script>
+
+    <section>
+      <h2>Section</h2>
+      <div>This is section content</div>
+      <div id="result"></div>
+      <div id="app"></div>
+    </section>
+
+
+    <script type="text/javascript" src="./js/footer.js"></script>
+  </div>
+</body>
+</html>
