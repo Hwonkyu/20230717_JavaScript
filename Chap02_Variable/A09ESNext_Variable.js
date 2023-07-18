@@ -28,7 +28,7 @@ console.log('');
 
 if (age > 10) {
   // 이 변수는  } 를 만나면 가비지 컬렉션(사용하지 않는 변수 삭제) 대상이 되서 메모리에서 삭제된다.
-  let num = 'Hello World';
+  let num = 'Hello World';      // 어떤 { } 내부에서만 사용되는 변수를 지역변수라 한다
   console.log('IN num: ' + num + ', typeof: ' + typeof num);
 }
 console.log('OUT num: ' + num + ', typeof: ' + typeof num);

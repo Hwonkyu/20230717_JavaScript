@@ -63,6 +63,30 @@ console.log('check: ' + check + ', typeof(변수명): ' + typeof check);
 
 // if (age) { }
 // if (!age) { }
+console.log('');
+
 
 console.log('-----------------  global 함수 -----------------');
 // https://hongjw1938.tistory.com/210
+str = '1234.56789ABC';
+
+let num = Number(str);
+console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
+
+num = parseInt(str);  // 정수만 추출 (문자 무시. 문자로 시작되면 변경 불가)
+console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
+
+num = parseFloat(str);  // 숫자 모두를 변환. (문자 무시. 문자로 시작되면 변경 불가)
+console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
+console.log('');
+
+// 빈 문자열을 숫자로 변경하는 경우 Number => 0으로 나머지는 NaN
+str = '';
+num = Number(str);
+console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
+
+num = parseInt(str);  // 정수만 추출 (문자 무시. 문자로 시작되면 변경 불가)
+console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
+
+num = parseFloat(str);  // 숫자 모두를 변환. (문자 무시. 문자로 시작되면 변경 불가)
+console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
