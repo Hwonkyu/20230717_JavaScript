@@ -5,11 +5,11 @@ npm 명령 간략 설명
     npmjs.com에서 검색하는 것이 보기 좋다.
 
   2. 상세 정보
-    npm info moduleName
+    npm info(view) moduleName
   
   3. version 정보
-    npm info moduleName version
-    npm info moduleName versions
+    npm info moduleName version     // 최신 버전
+    npm info moduleName versions    // 전체 버전 모두 출력
 
   4. 설치
     로컬 설치. 설치된 폴더와 하위 폴더에서만 사용 가능
@@ -24,7 +24,7 @@ npm 명령 간략 설명
       npm i moduleName@4.1    => 4.1의 마지막 버전
       npm i moduleName@4.1.0  => 4.1.0 버전
       
-      alpha, beta, rc 버전은 이름이 마지막 까지 매칭되어야 설치된다
+      alpha, beta, rc 버전은 이름이 마지막까지 매칭되어야 설치된다
       npm i bootstrap@5.3.0-alpha3
       
 
