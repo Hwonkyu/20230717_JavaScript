@@ -9,6 +9,26 @@ let objB = {
   age: 100,
 };
 
+// Object.assign => 기존 객체가 변경된다
+// Spread Operator [ES2015] => 기존 객체는 변경되지 않는다.
+const objC = Object.assign({}, objA);
+console.log(objC, objA === objC);
+objC.name = 'Hello';
+console.log(objC, objA);
+console.log('');
+
+const objE = Object.assign({}, objA, objB);
+console.log(objE);
+console.log(objA, objB)
+console.log('');
+
+// 기존 객체에 두 개를 복사
+// 중복된 값이 있으면 뒤에 오는 속성 값으로 덮어쓰기가 된다.
+const objD = Object.assign(objA, objB);
+console.log(objD);
+console.log(objA, objA === objD); // true
+console.log('');
+
 console.log('--------------- [627] spread Object ---------------');
 objA = {
   name: 'NolBu',
@@ -20,7 +40,7 @@ objB = {
   age: 100,
 };
 
-const objD = {
+const objF = {
   name: 'NolBu',
   age: 30,
   info: {

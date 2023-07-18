@@ -65,3 +65,9 @@ const hangDan = {
   },
 };
 hangDan.info();
+
+const key = 'h-age';
+// console.log(hangDan.key);    hangDan.'h-age' (X) => hangDan['h-age'] (OK)
+
+// 참조하는 프로퍼티가 변수명인 경우는 값이 어떤 값일지 모르므로 반드시 "객체명[변수명]" 형태로 사용한다
+console.log(hangDan[key]);
