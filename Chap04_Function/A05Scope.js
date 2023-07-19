@@ -23,6 +23,7 @@ function out() {
   A1 = '함수 내부에서 선언된 변수';
   console.log('Function IN: ', A);
 }
+
 console.log('Function OUT: ', A);
 
 out();
