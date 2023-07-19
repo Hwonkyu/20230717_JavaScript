@@ -38,6 +38,17 @@ let obj = {
   age: 30,
 };
 
+changeValue = function (x, y) {
+  x = 200;
+  y.name = 'HH';
+};
+
 console.log('----- 함수 호출 이전 -----');
 
+console.log(num, obj);
+
+changeValue(num, obj);
+
 console.log('----- 함수 호출 이후 -----');
+
+console.log(num, obj);
