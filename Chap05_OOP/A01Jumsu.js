@@ -11,10 +11,10 @@ const person = {
   kor: 100,
   eng: 80,
 
-  onTotal: function () {
+  onTotal() {
     return this.kor + this.eng;
   },
-  onAvg: function () {
+  onAvg() {
     return this.onTotal() / 2;
   },
   display: function () {
@@ -27,3 +27,59 @@ person.display();
 console.log('');
 
 console.log('---------------- 생성자 함수 -----------------');
+// ** 생성자 함수는 이 함수로 생성된 오브젝트 객체(인스턴스)의 부모 객체가 된다
+function Jumsu(name, kor, eng) {
+  // const this = {};
+  // [[Prototype]] = Jumsu.constructor
+
+  // this => 각 생성된 요소마다 개별적으로 사용할 값이나 메서스
+  // static => 공통적(share) 형태로 사용할 값이나 메서드
+  this.name = name;
+  this.kor = kor;
+  this.eng = eng;
+
+  this.onTotal = function () {
+    return this.kor + this.eng;
+  };
+  this.onAvg = function () {
+    return this.onTotal() / 2;
+  };
+  this.display = function () {
+    console.log(`${this.name}님의 총점은 ${this.onTotal()}이고 평균은 ${this.onAvg()}입니다.`);
+  };
+  // return this;
+}
+
+// static 프로퍼티와 static 메서드
+Jumsu.className = '3학년 5반';
+Jumsu.area = function (w, h) {
+  return w * h;
+};
+
+// new로 호출하면 내부 속성 constructor() 메서드가 호출되면서 생성자 함수로써 동작한다
+console.dir(Jumsu);
+
+const nolbu = new Jumsu('NolBu', 100, 90);
+const hungbu = new Jumsu('HungBu', 100, 80);
+
+console.log(nolbu);
+console.log(hungbu);
+
+nolbu.display();
+hungbu.display();
+console.log('');
+
+// static
+console.log(Jumsu.className);
+console.log(Jumsu.area(10, 10));
+
+/*
+  function Object() {
+    // this = {}
+  };
+  Object.getPrototypeOf(x, y) { };
+
+  const obj = new Object();
+  obj.hasOwnProperty();
+  Object.getPrototypeOf()
+*/
