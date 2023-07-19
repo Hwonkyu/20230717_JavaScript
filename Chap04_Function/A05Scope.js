@@ -68,4 +68,5 @@ function bar() {
   console.log(x);
 }
 
-bar();
+// bar();   // Global X
+foo(); // Global X => 만들어질때 참조 범위(scope)가 결정되어 있는 상태다
