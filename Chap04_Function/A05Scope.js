@@ -20,6 +20,7 @@ var A = 'Global';
 function out() {
   // 함수 내부에 선언된 변수는 var, let, const 상관없이 함수 내부에서만 유효한 변수가 된다(지역변수)
   var A = 'Local';
+  // 변수 선언 키워드를 생략하고 변수 정의를 하면 항상 글로벌 영역에 변수가 정의된다.
   A1 = '함수 내부에서 선언된 변수';
   console.log('Function IN: ', A);
 }
@@ -37,14 +38,25 @@ console.log('');
 // 내부 변수 정의
 // this 값 결정
 // 실행
-let x = 'Global X';
-let y = 'Global Y';
+const x = 'Global X';
+const y = 'Global Y';
 
 function outer() {
-  let z = 'Outer Local z';
+  const z = 'Outer Local z';
+
+  // 중첩함수
+  function inner() {
+    const y = 'Inner Y';
+
+    console.log(x, y, z);
+  }
+  inner();
+
+  console.log(x, y, z);
 }
 
 outer();
+// inner();         // 함수 내부에 선언된 변수 - 함수 밖에서 참조 못함
 console.log('');
 
 function foo() {
