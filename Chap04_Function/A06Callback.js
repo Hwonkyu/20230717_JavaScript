@@ -103,8 +103,84 @@ const three = function (x, y) {
 
   console.log('----- END -----');
 };
-three(1000, 2000);
+// three(1000, 2000);
 
-console.log('---------------- [604] Promise -----------------');
+const four = function (x, y, callback) {
+  console.log('----- START -----');
+
+  setTimeout(function () {
+    const result = x + y;
+    // console.log(`1차 출력 ${result}`);
+    callback(result);
+  }, 2000);
+
+  console.log('----- END -----');
+};
+
+const func = function (x) {
+  console.log(`Hello ${x}`);
+  return undefined;
+};
+// four(1000, 2000, func);
+
+/*
+four(1000, 2000, function (x) {
+  console.log(`Hello ${x}`);
+});
+*/
+console.log('');
+
+console.log('---------------- [604] Promise [ES2015] -----------------');
+const five = function (ms) {
+  // resolve => then이 전달한 함수 즉 function() { console.log('성공')
+  // reject => catch가 전달한 함수 즉 function() { console.log('에러')
+  const promise = new Promise(function (resolve, reject) {
+    if (ms < 1000) reject(new Error('시간이 너무 짧습니다.'));
+    setTimeout(function () {
+      const result = 3000;
+      resolve(result);
+    }, ms);
+  });
+
+  return promise;
+};
+
+/*
+five(2000)
+  .then(function (data) {
+    console.log(data);
+
+    // 결과값을 받은 후 추후 처리나 다른 시간 걸리는 작업을 리턴하면 다음 then이 잡아 처리한다
+    return five(data + 1000);
+  })
+  .then(function (data) {
+    console.log(data);
+
+    return data + 1000;
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (err) {
+    console.log(err);
+  });
+*/
+
+// ES2017 async ~ await
+// 함수로 묶어서 실행한다
+const getValue = async () => {
+  try {
+    // 함수 내부에 await가 있으면 가장 가까운 함수는 반드시 async 를 붙여주어야 한다
+    const data1 = await five(2000); // 결과가 반환될때까지 이 줄에서 다음줄을 진행하지말고 대기
+    console.log(data1);
+    const data2 = await five(data1 + 1000);
+    console.log(data2);
+    console.log(data2 + 2000);
+  } catch (err) {
+    // try { } 블럭에서 에러가 발생하면 이 위치로 이동 후 catch { } 블럭을 실행 후 다음 구문으로 이동한다.
+    console.error(err);
+  }
+};
+getValue();
 
 console.log('---------------- 프로그램 종료 -----------------');

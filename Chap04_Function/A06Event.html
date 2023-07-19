@@ -13,7 +13,14 @@
 </body>
 
 <script>
+	// document.getElementById('btn').addEventListener('click', function(evt){
+	// 	alert(evt.target.innerText)
+	// })
 
+	const callback = function(evt) {
+		alert(evt.target.innerText)
+	}
+	document.getElementById('btn').addEventListener('click', callback);
 </script>
 
 </html>
