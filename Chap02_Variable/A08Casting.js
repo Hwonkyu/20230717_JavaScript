@@ -13,9 +13,9 @@ console.log('check: ' + check + ', typeof(변수명): ' + typeof check);
 x = Number(str);
 console.log('x: ' + x + ', typeof(변수명): ' + typeof x);
 
-x = Number(check);    // true => 1, false => 0
+x = Number(check); // true => 1, false => 0
 console.log('x: ' + x + ', typeof(변수명): ' + typeof x);
-console.log('')
+console.log('');
 
 console.log('----------------- 암묵적 타입 변환 (강제 타입 변환) -----------------');
 // 문자열과 +면 문자열(string)이 된다 String(x) 보다 빠르다
@@ -65,7 +65,6 @@ console.log('check: ' + check + ', typeof(변수명): ' + typeof check);
 // if (!age) { }
 console.log('');
 
-
 console.log('-----------------  global 함수 -----------------');
 // https://hongjw1938.tistory.com/210
 str = '1234.56789ABC';
@@ -73,10 +72,10 @@ str = '1234.56789ABC';
 let num = Number(str);
 console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
 
-num = parseInt(str);  // 정수만 추출 (문자 무시. 문자로 시작되면 변경 불가)
+num = parseInt(str); // 정수만 추출 (문자 무시. 문자로 시작되면 변경 불가)
 console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
 
-num = parseFloat(str);  // 숫자 모두를 변환. (문자 무시. 문자로 시작되면 변경 불가)
+num = parseFloat(str); // 숫자 모두를 변환. (문자 무시. 문자로 시작되면 변경 불가)
 console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
 console.log('');
 
@@ -85,8 +84,8 @@ str = '';
 num = Number(str);
 console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
 
-num = parseInt(str);  // 정수만 추출 (문자 무시. 문자로 시작되면 변경 불가)
+num = parseInt(str); // 정수만 추출 (문자 무시. 문자로 시작되면 변경 불가)
 console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
 
-num = parseFloat(str);  // 숫자 모두를 변환. (문자 무시. 문자로 시작되면 변경 불가)
+num = parseFloat(str); // 숫자 모두를 변환. (문자 무시. 문자로 시작되면 변경 불가)
 console.log('num: ' + num + ', typeof(변수명): ' + typeof num);
