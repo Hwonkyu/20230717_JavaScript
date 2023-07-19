@@ -20,6 +20,7 @@ var A = 'Global';
 function out() {
   // 함수 내부에 선언된 변수는 var, let, const 상관없이 함수 내부에서만 유효한 변수가 된다(지역변수)
   var A = 'Local';
+  A1 = '함수 내부에서 선언된 변수';
   console.log('Function IN: ', A);
 }
 console.log('Function OUT: ', A);
