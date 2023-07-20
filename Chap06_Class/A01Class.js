@@ -51,6 +51,15 @@ class JumsuTwo {
     console.log(`${this.name} / ${this.onTotal()} / ${this.onAvg()}`);
   }
 
+  // Getter / Setter
+  get nickname() {
+    // 필요에 따라 적절히 제약 조건을 달 수 있다
+    return this.name;
+  }
+  set nickname(x) {
+    this.name = x;
+  }
+
   // JumsuTwo.className = '3학년 1반';
   static className = '3학년 1반';
   static getArea(w, h) {
@@ -60,5 +69,13 @@ class JumsuTwo {
 
 const hungbu = new JumsuTwo('NolBu', 100, 80);
 const hangDan = new JumsuTwo('향단', 100, 90);
+
 console.log(hungbu);
 console.log(hangDan);
+
+hungbu.onDisplay();
+hangDan.onDisplay();
+
+console.log(hungbu.nickname);
+hungbu.nickname = 'ABC';
+console.log(hungbu.nickname);
