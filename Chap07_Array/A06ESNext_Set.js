@@ -38,10 +38,23 @@ mySet.forEach((item, index, arr) => {
 console.log('');
 
 // iterator 객체
-const keys = mySet.keys();
+const keys = mySet.keys(); // index (value를 index로 사용)
 console.log(keys);
 
 // next() 를 이용해서 순차적으로 하나씩 호출 가능
 console.log(keys.next());
 const two = keys.next();
 console.log(two.value, two.done);
+console.log(keys.next());
+console.log(keys.next());
+console.log(keys.next());
+console.log(keys.next());
+console.log(keys.next());
+console.log('');
+
+const values = mySet.values();
+console.log(values.next());
+console.log('');
+
+const ent = mySet.entries();
+console.log(ent.next());
