@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <title>A01 Event</title>
+
+    <script>
+      const btn04Event = function (evt) {
+        alert(evt.target.innerText);
+      };
+
+      // 브라우저가 현재 페이지를 끝까지 정상적으로 다 읽은 후에 자동으로 발생하는 이벤트. 그 이벤트를 잡아서 처리
+      window.addEventListener('load', function (evt) {
+        const btn04 = document.getElementById('btn04');
+        btn04.addEventListener('click', btn04Event);
+      });
+
+      window.addEventListener('resize', function (evt) {
+        console.log('window resize');
+      });
+
+      window.addEventListener('error', function (evt) {
+        console.log('window 읽어오다 에러 발생');
+      });
+    </script>
+  </head>
+  <body>
+    <div class="card-body">
+      <h2>1. Event</h2>
+
+      <div>
+        <button onclick="alert('Hello World')">CLICK 01</button>
+        <!-- 
+          인라인 이벤트에서 이벤트 핸들러를 호출할때 이벤트 핸들러가 evevt 객체를 사용한다면 반드시 이벤트 객체를 전달할 필요가 있음
+          이벤트 객체는 키워드 "event"로 참조한다 
+          Vue.js에서는 $event로 사용
+        -->
+        <button onclick="btn02Event(event)">CLICK 02</button>
+
+        <button id="btn03">CLICK 03</button>
+        <button id="btn04">CLICK 04</button>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      const btn02Event = function (evt) {
+        alert(evt.target.innerText);
+      };
+
+      // console.log(window);
+      const btn03 = document.getElementById('btn03');
+      // console.log(btn03);
+
+      // 표준방식. 이때 이벤트 이름은 on을 생략한 이름으로 기술한다. 콜백함수에는 묵시적으로 event 객체 1개를 전달해 준다(evt)
+      btn03.addEventListener('click', function (evt) {
+        console.log(evt.target);
+      });
+    </script>
+  </body>
+</html>
