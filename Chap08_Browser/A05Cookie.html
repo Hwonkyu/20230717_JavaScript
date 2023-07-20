@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <title>A05 Cookie</title>
+  </head>
+  <body>
+    <div class="card-body">
+      <h1>Cookie</h1>
+
+      <div>
+        Name: <span id="name"></span><br />
+        Age: <span id="age"></span>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      // Not Escaped => A-Z a-z 0-9 - _ . ! ~ * ' ( )
+      var str = encodeURIComponent('한글ab123@#$%^&+=!*()_-');
+      console.log(str);
+
+      // Not Escaped => A-Z a-z 0-9 ; , / ? : @ & = + $ - _ . ! ~ * ' ( ) #
+      str = encodeURI('한글ab123%^&!@#$*()_-+=');
+      console.log(str);
+
+      /*
+      document.cookie = 'name=놀부; max-age=30';
+      document.cookie = 'age=20; max-age=30';
+
+      console.log(document.cookie);
+      console.log(document.cookie.split('; '));
+      */
+
+      const getCookie = (name) => {
+        const cookies = document.cookie.split('; '); // ['name'='놀부', age=30]
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].split('='); // [name, 놀부];
+          const key = decodeURIComponent(cookie[0]);
+          if (key === name) return decodeURIComponent(cookie[1]);
+        }
+      };
+
+      const setCookie = (key, value, max, path, domain, secure) => {
+        let cookie = '';
+        cookie = `${encodeURIComponent(key)}=${encodeURIComponent(value)}; `;
+        if (max) cookie = cookie + `max-age=${max}; `;
+        if (path) cookie = cookie + `path=${path}; `; // /book => 도메인/book/ 폴더 내부에서만 쿠키 참조 가능. 보통 /
+        if (domain) cookie = cookie + `doman=${domain}; `; // 어느 URL에서만 사용하도록 할 것인가. 127.0.0.1에서는 적용 안됨
+        if (secure) cookie = cookie + 'secure'; // https에서만 설정하면 http에서는 사용 불가
+
+        document.cookie = cookie;
+      };
+
+      // cookie 생성
+      setCookie('name', '홍길동', 30, '/');
+      setCookie('age', 30, 30);
+
+      const name = getCookie('name');
+      const age = getCookie('age');
+
+      document.getElementById('name').innerText = name;
+      document.getElementById('age').innerText = age;
+    </script>
+  </body>
+</html>
