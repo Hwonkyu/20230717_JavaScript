@@ -60,24 +60,45 @@ const objArray = [
 ];
 
 // 요소값 자체를 반환
-const findItem = (num) => {
-  const result = objArray.find((item, index, arr) => {
+const findItem = (arr, num) => {
+  const result = arr.find((item) => {
     if (item.id === num) return item;
   });
 
   return result;
 };
-console.log(findItem(2));
+console.log(findItem(objArray, 2));
 
 // Index 참조
-const findItemIndex = (num) => {
-  const result = objArray.findIndex((item, index, arr) => {
-    if (index === num) return item;
+const findItemIndex = (arr, num) => {
+  const result = arr.findIndex((item) => {
+    return item.id === num;
   });
 
   return result;
 };
-// 인텍스 2번의 요소를 참조
-console.log(findItemIndex(2));
+// 2번의 요소의 index를 참조
+console.log(findItemIndex(objArray, 2)); // 1
+console.log('');
 
+// [10, 11, 100, 101, 1000];
+// sum => 0, item => 10
+// sum = 0 + 10, item => 11
+// sum => 10 + 11, item =>100
+// ..
+const result = arr.reduce((sum, item) => {
+  return sum + item;
+}, 0);
+console.log(result);
+
+// 각 이름이 몇번 나올까?
+// {'NolBu': 1, 'HungBu': 2, ...}
 const names = ['NolBu', 'HungBu', 'BangJa', 'HongGilDong', 'HungBu', 'BangJa'];
+
+const nameCount = names.reduce((obj, item) => {
+  if (obj[item]) obj[item] = obj[item] + 1;
+  else obj[item] = 1;
+
+  return obj;
+}, {});
+console.log(nameCount);
