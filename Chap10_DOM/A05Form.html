@@ -62,9 +62,10 @@
 
         SelectBox: <br />
         <select name="baseball" class="form-control">
-          <option>NC</option>
-          <option>두산</option>
-          <option>엘지</option>
+          <option value="">선택해 주세요</option>
+          <option value="엔씨">NC</option>
+          <option value="두산">두산</option>
+          <option value="엘지">엘지</option>
         </select>
         <br />
 
@@ -73,6 +74,9 @@
           <option selected>NC</option>
           <option>두산</option>
           <option>엘지</option>
+          <option>한화</option>
+          <option>삼성</option>
+          <option>롯데</option>
         </select>
         <br />
 
@@ -155,12 +159,22 @@
 
           // selectbox 단일 선택
           const baseball = document.querySelector('select[name="baseball"] option:checked');
-          if (!date.value) {
+          if (!baseball.value || baseball.value.trim() === '') {
             alert('팀을 선택해 주세요');
             baseball.focus();
             return false;
           } else {
-            sendData.baseball = name.value;
+            sendData.baseball = baseball.value;
+          }
+
+          // selectbox 다중 선택
+          const four = [];
+          document.querySelectorAll('select[name="four"] option:checked').forEach((elem) => four.push(elem.value));
+          if (four.length === 0) {
+            alert('1개 이상 선택해 주세요');
+            return;
+          } else {
+            sendData.four = four;
           }
 
           console.log(sendData);
