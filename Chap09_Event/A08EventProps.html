@@ -34,6 +34,22 @@
       box.style.cursor = 'pointer';
 
       document.body.appendChild(box);
+
+      const moveEvent = function (evt) {
+        // console.log(evt.pageX);
+        box.style.left = evt.pageX - boxX + 'px';
+        box.style.top = evt.pageY - boxY + 'px';
+      };
+
+      box.addEventListener('mousedown', function (evt) {
+        boxX = evt.offsetX;
+        boxY = evt.offsetY;
+        document.addEventListener('mousemove', moveEvent);
+      });
+      box.addEventListener('mouseup', function (evt) {
+        // 이벤트 삭제. 이벤트 이름과 콜백함수 이름이 동일하게 지정되어야 한다.
+        document.removeEventListener('mousemove', moveEvent);
+      });
     })();
   </script>
 </html>

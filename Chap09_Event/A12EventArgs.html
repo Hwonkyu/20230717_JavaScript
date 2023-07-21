@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
     <title>A12 Event This</title>
   </head>
   <body>
@@ -15,12 +19,35 @@
         <button id="btn01">CLICK</button>
         <button id="btn02">CLICK</button>
         <button id="btn03">CLICK</button>
+        <button id="btn04">CLICK</button>
       </div>
     </div>
 
     <script type="text/javascript">
       (function () {
-        
+        document.querySelector('#btn01').addEventListener('click', function (evt) {
+          evt.target.style.background = 'orange';
+        });
+
+        // addEventListener는 event 객체 1개만 전달한다
+        document.querySelector('#btn02').addEventListener('click', function (evt, color) {
+          console.log(color);
+          evt.target.style.background = 'lightgreen';
+        });
+
+        const btn03Event = function (evt, color) {
+          console.log(color);
+          evt.target.style.background = color;
+        };
+        document.querySelector('#btn03').addEventListener('click', function (evt) {
+          btn03Event(evt, 'lightgray');
+        });
+
+        const btn04Event = function (evt, color) {
+          evt.target.style.background = color;
+        };
+
+        document.querySelector('#btn04').addEventListener('click', (evt) => btn03Event(evt, 'lightgray'));
       })();
     </script>
   </body>
