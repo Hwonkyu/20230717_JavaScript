@@ -20,6 +20,11 @@
         <button id="btn02">CLICK</button>
         <button id="btn03">CLICK</button>
         <button id="btn04">CLICK</button>
+
+        <!-- 
+          <button id="btn05" onClick="btn05Event">CLICK</button>
+          <button id="btn06" onClick="(evt) => btn06Event(evt, 'orange')">CLICK</button>
+        -->
       </div>
     </div>
 
@@ -46,8 +51,15 @@
         const btn04Event = function (evt, color) {
           evt.target.style.background = color;
         };
-
         document.querySelector('#btn04').addEventListener('click', (evt) => btn03Event(evt, 'lightgray'));
+
+        // React / Vue
+        const btn05Event = function (evt) {
+          evt.target.style.background = 'orange';
+        };
+        const btn06Event = function (evt, color) {
+          evt.target.style.background = color;
+        };
       })();
     </script>
   </body>
