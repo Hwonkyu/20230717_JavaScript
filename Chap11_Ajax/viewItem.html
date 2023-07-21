@@ -1,36 +1,67 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>View</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"/>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
   </head>
   <body>
     <div class="card-body">
-      
       <h3>게시물 상세보기</h3>
-      
-      Name: <input type="text" class="form-control" name="name" readonly/> 
-      Tel: <input type="text" class="form-control" name="tel"  readonly/> 
-      Address: <input type="text" class="form-control" name="address"  readonly/>
+
+      Name: <input type="text" class="form-control" name="name" readonly /> Tel:
+      <input type="text" class="form-control" name="tel" readonly /> Address:
+      <input type="text" class="form-control" name="address" readonly />
       <br />
-      
-      <button class="btn btn-primary">LIST</button>
+
+      <button class="btn btn-primary" id="list">LIST</button>
+      <button class="btn btn-primary" id="delete">DELETE</button>
     </div>
 
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.4.0/axios.min.js"></script>
     <script type="text/javascript">
-      const baseURL = 'http://sample.bmaster.kro.kr/contacts/';
-      
-      
+      // https로 변경 후 테스트 하세요...
+      const baseURL = 'https://sample.bmaster.kro.kr/contacts/';
+
+      const search = location.search.split('=');
+      // console.log(search);
+
+      document.querySelector('#list').addEventListener('click', function () {
+        location.assign('./contactList.html');
+      });
+      document.querySelector('#delete').addEventListener('click', function () {
+        deleteContact(search[1]);
+      });
+
+      const getContact = async (no) => {
+        try {
+          const resp = await axios.get(baseURL + no);
+          // console.log(resp.data);
+          document.querySelector('input[name="name"]').value = resp.data.name;
+          document.querySelector('input[name="tel"]').value = resp.data.tel;
+          document.querySelector('input[name="address"]').value = resp.data.address;
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+      const deleteContact = async (no) => {
+        try {
+          const resp = await axios.delete(baseURL + no);
+          alert(resp.data.status);
+          location.assign('./contactList.html');
+        } catch (err) {
+          console.error(err);
+        }
+      };
+
+      getContact(search[1]);
     </script>
   </body>
 </html>
-
-
-
-
-
-
-
