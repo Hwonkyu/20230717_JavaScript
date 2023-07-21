@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
     <title>A06 Event</title>
   </head>
   <body>
@@ -16,10 +20,16 @@
     </div>
 
     <script>
-      window.addEventListener("load", function () {
+      // 정상 로드가 안된 경우는 이 함수 내부가 실행되지 않는다.
+      window.addEventListener('load', function () {
         console.dir(this);
+        // 함수 내부라 var 변수 등을 사용해도 window 영역을 오염시키지 않는다
+        function alert() {
+          console.log('Hello World');
+        }
+        alert();
       });
-      
+      // alert('Good Morning');     // 정상 실행
     </script>
   </body>
 </html>
