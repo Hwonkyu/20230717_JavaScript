@@ -63,14 +63,26 @@
 
           if (elem.nodeType === 1 && elem.nodeName === 'INPUT') {
             const name = elem.getAttribute('name');
-            // const name = elem.getAttribute('value');   // 값 참조 안됨. DOM에 속성 없음
+            // 값 참조 안됨. DOM에 속성 없음
+            // getAttribute()는 DOM에 속성값이 기술되어 있어야 값을 참조할 수 있다
+            // const name = elem.getAttribute('value');
+
+            // 요소명.속성 => 빌드될때 생성되는 자바스크립트 객체의 속성명을 참조한다
+            // 따라서 값이 없으면 null, 또는 undefiend
             const value = elem.value;
 
             sendData[name] = value;
           }
         }
+        // console.log(sendData);
 
-        console.log(sendData);
+        // JavaScript => JSON 객체로 변경
+        const jsonData = JSON.stringify(sendData);
+        console.log(jsonData);
+
+        // JSON Data => JavaScript 객체
+        const jsData = JSON.parse(jsonData);
+        console.log(jsData);
       });
     </script>
   </body>

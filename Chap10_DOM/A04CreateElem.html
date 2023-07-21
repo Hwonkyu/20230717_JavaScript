@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
     <title>A04 Shopping</title>
   </head>
   <body>
@@ -33,7 +37,41 @@
       </ul>
     </div>
     <script type="text/javascript">
-      (function () {})();
+      (function () {
+        const btn01 = document.querySelector('button');
+        // 좋지 않은 방법. 중간에 요소가 추가되면 참조가 달라진다
+        const btn02 = btn01.nextElementSibling;
+        const btn03 = btn02.nextElementSibling;
+
+        btn01.addEventListener('click', function (evt) {
+          const movies = document.querySelector('#movies');
+          const firstElem = movies.firstElementChild;
+          if (firstElem && firstElem.nextElementSibling) {
+            const two = firstElem.nextElementSibling.textContent;
+            alert(two);
+          }
+        });
+
+        btn02.addEventListener('click', function (evt) {
+          const purchases = document.querySelector('#purchases');
+          const milk = document.createElement('li');
+          milk.append('우유');
+
+          // purchases.appendChild(milk);
+          purchases.insertBefore(milk, purchases.children[1]);
+        });
+
+        btn03.addEventListener('click', function (evt) {
+          const list = document.querySelectorAll('.list');
+
+          for (let i = 0; i < list.length; i++) {
+            const elem = list[i];
+            const firstElem = elem.firstElementChild;
+
+            if (firstElem) firstElem.remove();
+          }
+        });
+      })();
     </script>
   </body>
 </html>

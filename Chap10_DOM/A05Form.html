@@ -1,10 +1,14 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
     <title>A07 Form</title>
   </head>
   <body>
@@ -13,13 +17,13 @@
 
       <form>
         Name: <input type="text" name="name" class="form-control" /><br />
-        Age: <input type="text" name="age" class="form-control" /><br />
+        Age: <input type="number" name="age" class="form-control" /><br />
         Date: <input type="date" name="date" class="form-control" />
         <br />
 
         RadioButton: <br />
         <div class="form-check">
-          <input type="radio" name="sports" value="baseball" id="baseball" class="form-check-input" checked />
+          <input type="radio" name="sports" value="baseball" id="baseball" class="form-check-input" />
           <label htmlFor="baseball" class="form-check-label">야구</label>
         </div>
 
@@ -79,6 +83,88 @@
     <script type="text/javascript">
       (function () {
         const sendData = {};
+        const submit = document.querySelector('button[type="submit"]');
+
+        submit.addEventListener('click', function (evt) {
+          evt.preventDefault();
+
+          // 한줄짜리 input 요소
+          const name = document.querySelector('input[name="name"]');
+          if (!name.value.trim() || name.value.trim().length < 5) {
+            alert('이름은 5글자 이상 입력해 주세요');
+            name.value = ''; // 입력된 값을 초기화 한다
+            name.focus(); // 커서를 위치 시킨다
+            // 아래 진행을 막는다
+            return false;
+          } else {
+            // sendData.name = name.value;
+            sendData[name.name] = name.value;
+          }
+
+          const age = document.querySelector('input[name="age"]');
+          // console.log(typeof age.value);
+          let ageValue = Number(age.value);
+          if (!ageValue || isNaN(ageValue)) {
+            alert('나이를 숫자 형태로 입력해 주세요');
+            age.value = '';
+            age.focus();
+            return false;
+          } else {
+            // sendData.age = name.value;
+            sendData[age.name] = ageValue;
+          }
+
+          const date = document.querySelector('input[name="date"]');
+          if (!date.value) {
+            alert('날짜를 입력해 주세요');
+            date.value = '';
+            date.focus();
+            return false;
+          } else {
+            // sendData.date = name.value;
+            sendData[date.name] = date.value;
+          }
+
+          // radio button
+          const sports = document.querySelector('input[name="sports"]:checked');
+          if (!sports) {
+            alert('좋아하는 스포츠를 선택해 주세요');
+            return false;
+          } else {
+            // sendData.sports = sports.value;
+            sendData[sports.name] = sports.value;
+          }
+
+          // 단일 checkbox
+          const isChecked = document.querySelector('input[name="isChecked"]');
+          if (isChecked.checked) sendData.isChecked = '동의';
+          else sendData.isChecked = '동의 안함';
+
+          // 다중 checkbox
+          const language = [];
+          const languages = document.querySelectorAll('input[name="language"]:checked');
+          for (let i = 0; i < languages.length; i++) {
+            language.push(languages[i].value);
+          }
+          if (language.length === 0) {
+            alert('1개 이상 선택해 주세요');
+            return;
+          } else {
+            sendData.language = language;
+          }
+
+          // selectbox 단일 선택
+          const baseball = document.querySelector('select[name="baseball"] option:checked');
+          if (!date.value) {
+            alert('팀을 선택해 주세요');
+            baseball.focus();
+            return false;
+          } else {
+            sendData.baseball = name.value;
+          }
+
+          console.log(sendData);
+        });
       })();
     </script>
   </body>
