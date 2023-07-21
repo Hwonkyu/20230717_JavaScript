@@ -4,7 +4,8 @@
   "description": "그냥 만들어 보는 모듈",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel Chap05_OOP/* -d dist"
   },
   "keywords": [
     "javascript",
@@ -17,6 +18,9 @@
     "jquery": "^3.7.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.22.9",
+    "@babel/core": "^7.22.9",
+    "@babel/preset-env": "^7.22.9",
     "eslint": "8.43",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-google": "^0.14.0",

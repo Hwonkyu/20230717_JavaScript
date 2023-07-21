@@ -26,7 +26,7 @@ console.log('nickname: ' + nickname + ', typeof: ' + typeof nickname);
 
 nickname = [10, 20];
 console.log('nickname: ' + nickname + ', typeof: ' + typeof nickname);
-console.log('')
+console.log('');
 
 console.log('---------------- [074] hosting (끌어올림) -----------------');
 // var 변수는 Explorer를 지원하지 않는다면 사용하지 말자.
@@ -41,7 +41,7 @@ var age = 30;
 console.log('age: ' + age + ', typeof: ' + typeof age); // 30, number
 
 function onAdd() {
-  console.log('나는 함수...')
+  console.log('나는 함수...');
 }
 console.log('');
 
@@ -51,7 +51,7 @@ console.log('age: ' + age + ', typeof: ' + typeof age); // true, boolean
 
 // 위의 onAdd()를 호이스팅 과정에서 덮어쓴다
 function onAdd() {
-  console.log('나는 함수 Two...')
+  console.log('나는 함수 Two...');
 }
 console.log('');
 
@@ -60,7 +60,7 @@ var num = 100;
 console.log('num: ' + num + ', typeof: ' + typeof num);
 
 if (num === 100) {
-  var num = '문자열...';    // 위의 num 변수를 재 선언
+  var num = '문자열...'; // 위의 num 변수를 재 선언
   console.log('if inner num: ' + num + ', typeof: ' + typeof num);
 }
 console.log('num: ' + num + ', typeof: ' + typeof num);
@@ -83,8 +83,7 @@ var alert = 100;
 // 따라서 함수로써 실행할 수 없다
 // alert('Hello World 02');       // Error
 
-
 // console.log(window);    // Node에는 없음
 // ES2020. Node, Browser 어느 환경에서도 global 요소에 대한 참조값을 출력해 준다
 console.log(globalThis);
-console.log('')
+console.log('');
