@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <title>A01 Node</title>
+  </head>
+  <body>
+    <div class="card-body">
+      <h2>A01 Node</h2>
+
+      <ul id="list">
+        <li>리스트 01</li>
+        <li>리스트 02</li>
+        <li>리스트 03</li>
+      </ul>
+    </div>
+
+    <script type="text/javascript">
+      // Node => 구성요소(Tag, text, 주석...)
+      console.log(document.childNodes);
+      console.log(document.parentNode);
+
+      console.log(document.childNodes[0]); // DocType
+      console.log(document.childNodes[1]); // HTML
+      /*
+        1 => Element
+        2 => Attribute
+        3 => Text
+        4 => CDATA
+        8 => 주석
+        9 => document
+        10 => DocType
+      */
+      console.log(document.childNodes[1].nodeType);
+      console.log(document.childNodes[1].nodeName); // 항상 대문자. 비교도 대문자로 해야 한다
+      console.log('');
+
+      // XML
+      const list = document.querySelector('#list');
+      console.log(list.childNodes);
+      console.log(list.parentNode); // div
+      console.log('');
+
+      console.log(list.firstChild); // text
+      console.log(list.firstChild.nextSibling); // 첫번째 li
+      console.log(list.firstChild.nextSibling.nextSibling.nextSibling); // 두번째 li
+      console.log(list.firstChild.nextSibling.nextSibling.nextSibling.textContent);
+      console.log('');
+
+      console.log(list.lastChild); // text
+      console.log(list.lastChild.previousSibling.innerText); // 3번째 li
+      console.log(list.lastChild.previousSibling.nodeType);
+      console.log(list.lastChild.previousSibling.nodeName);
+      console.log('');
+
+      // HTML 요소만 추출
+      console.log(list.children); // 3개
+      console.log(list.firstElementChild.textContent); // Element가 붙으면 HTML 요소만 검색
+      console.log(list.lastElementChild.textContent);
+      console.log(list.lastElementChild.previousElementSibling.textContent);
+    </script>
+  </body>
+</html>

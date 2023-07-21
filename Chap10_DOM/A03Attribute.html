@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    />
+    <title>A03 Attribute</title>
+  </head>
+  <body>
+    <div class="card-body">
+      <h2>Element Attribute</h2>
+
+      <div>
+        <a href="http://www.google.com">GOOGLE</a>
+      </div>
+
+      <form>
+        Name: <input type="text" class="form-control" name="name" /><br />
+        Age: <input type="text" class="form-control" name="age" /><br />
+        Password:<input type="password" class="form-control" name="pw" />
+        <button type="submit">SEND</button>
+      </form>
+      <div id="result"></div>
+    </div>
+
+    <script type="text/javascript">
+      const google = document.querySelector('a[href="http://www.google.com"]');
+
+      // href 속성 참조
+      const googleHref = google.getAttribute('href');
+
+      // 속성값 할당
+      document.querySelector('input[name="name"]').setAttribute('value', googleHref);
+
+      // 속성이 있니?
+      if (!google.hasAttribute('title')) google.setAttribute('title', 'Google로 이동합니다');
+
+      // 전체 속성
+      const attrs = google.attributes;
+      for (let i = 0; i < attrs.length; i++) {
+        console.log(`${attrs[i].name} - ${attrs[i].value}`);
+      }
+
+      // 속성 삭제
+      google.removeAttribute('href');
+      console.log('');
+
+      // form 요소 중 input 요소의 value 값(속성)만 뽑아서 서버에 전송
+      const sendData = {};
+      const submit = document.querySelector('form button[type="submit"]');
+
+      submit.addEventListener('click', function (evt) {
+        evt.preventDefault(); // 기본 전송 기능 취소
+
+        const formElem = document.querySelector('form');
+        for (let i = 0; i < formElem.children.length; i++) {
+          const elem = formElem.children[i];
+
+          if (elem.nodeType === 1 && elem.nodeName === 'INPUT') {
+            const name = elem.getAttribute('name');
+            // const name = elem.getAttribute('value');   // 값 참조 안됨. DOM에 속성 없음
+            const value = elem.value;
+
+            sendData[name] = value;
+          }
+        }
+
+        console.log(sendData);
+      });
+    </script>
+  </body>
+</html>
